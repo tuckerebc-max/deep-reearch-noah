@@ -1,0 +1,4 @@
+interface:
+  display_name: "Deep Research"
+  short_description: "Cross-validated research across three providers"
+  default_prompt: "Use $deep-research to investigate this topic with GPT, Perplexity, and Gemini, then verify and synthesize the evidence."
