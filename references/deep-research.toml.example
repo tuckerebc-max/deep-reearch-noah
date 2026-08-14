@@ -1,0 +1,41 @@
+# No secrets belong in this file. Values come from environment variables.
+
+[providers.chatgpt]
+api_type = "openai"
+api_key_env = "OPENAI_API_KEY"
+model = "gpt-5.6-sol"
+max_tokens = 32768
+
+[providers.perplexity]
+api_type = "openai"
+api_key_env = "PERPLEXITY_API_KEY"
+base_url = "https://api.perplexity.ai"
+model = "sonar-deep-research"
+max_tokens = 128000
+capabilities = ["web_search"]
+pricing = { in = 2.0, out = 8.0, reasoning = 3.0, searches_per_run = 50, search_per_k = 5.0 }
+
+[providers.gemini]
+api_type = "gemini"
+api_key_env = "GOOGLE_API_KEY"
+model = "gemini-3.5-flash"
+fallback_models = ["gemini-3.6-flash", "gemini-2.5-flash"]
+max_tokens = 65536
+
+[defaults]
+utility = "chatgpt"
+
+[agents.academic]
+provider = "gemini"
+
+[agents.practitioner]
+provider = "chatgpt"
+
+[agents.real-time]
+provider = "perplexity"
+
+[agents.grey-literature]
+provider = "gemini"
+
+[agents.contrarian]
+provider = "chatgpt"
